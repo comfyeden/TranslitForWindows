@@ -2,7 +2,7 @@
 
 ![Windows][win-badge]
 ![Platforms][platforms-badge]
-[![License][license-badge]](https://opensource.org/license/gpl-3-0/)
+[![License][license-badge]][license]
 
 
 This Windows _text service_[^1] allows a user familiar only with a Latin alphabet keyboard to 
@@ -114,5 +114,6 @@ If you want to build the installers, you will also need [WiX Toolset][wix-toolse
 [win-badge]: https://img.shields.io/badge/Windows-10,%2011-blue?style=flat&labelColor=black
 [platforms-badge]: https://img.shields.io/badge/Platforms-x64,%20arm64-blue?style=flat&labelColor=black
 [license-badge]: https://img.shields.io/badge/license-GPLv3-red.svg
+[license]: https://opensource.org/license/gpl-3-0/
 
 <!-- End Links -->
