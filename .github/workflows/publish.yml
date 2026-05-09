@@ -8,22 +8,23 @@ on:
 
 jobs:
   main:
-    runs-on: windows-latest
+    runs-on: windows-2025-vs2026
     permissions: write-all
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+      uses: actions/checkout@v6
 
     - name: Set up Python
-      uses: actions/setup-python@v5
+      uses: actions/setup-python@v6
       with:
-        python-version: '3.13'
+        python-version: '3.14'
 
     - name: Install WiX
       run: |
-        dotnet tool install --global wix
-        wix extension add -g WixToolset.Util.wixext
-        wix extension add -g WixToolset.UI.wixext
+        dotnet tool install --global wix --version 6.*
+        $wix_version = (wix --version).Trim()
+        wix extension add -g WixToolset.Util.wixext/$wix_version
+        wix extension add -g WixToolset.UI.wixext/$wix_version
 
     - name: Get Version
       shell: bash
@@ -58,7 +59,7 @@ jobs:
         done
       
     - name: Make release
-      uses: softprops/action-gh-release@v2
+      uses: softprops/action-gh-release@v3
       with:
         draft: true
         prerelease: false

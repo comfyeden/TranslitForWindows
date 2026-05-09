@@ -54,11 +54,11 @@ def main():
     studios = get_vs_instances()
     studio_dir = None
     for studio in studios:
-        if studio['version'][0] == 17:
+        if studio['version'][0] == 18:
             print(f'Using {studio["name"]}', flush=True)
             studio_dir = studio['location']
     if studio_dir is None:
-        raise RuntimeError('Cannot find Visual Studio 17 instance')
+        raise RuntimeError('Cannot find Visual Studio 18 instance')
     
     msbuild = studio_dir / f'MSBuild\\Current\\Bin\\{arch}\\MSBuild.exe'
 
