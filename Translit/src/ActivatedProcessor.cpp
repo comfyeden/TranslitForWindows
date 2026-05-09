@@ -338,6 +338,9 @@ bool ActivatedProcessor::onKeyDown(bool preview, ITfContext * context, WPARAM wP
 
 	auto vcode = UINT(wParam);
 
+	if (vcode == VK_SHIFT || vcode == VK_MENU)
+		return false;
+
 	auto chars = virtualKeyCodeToText(vcode);
 #ifndef NDEBUG
 	debugPrint("Translit:  Got {} {:x},  Chars: '{}'\n", vcode, lParam, chars);
