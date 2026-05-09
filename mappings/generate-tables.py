@@ -1,7 +1,6 @@
 # Copyright (c) 2023, Eugene Gershnik
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-
 import sys
 import tomllib
 import unicodedata
@@ -195,7 +194,10 @@ def generate_mapping_header(config: dict[str, Any]):
             for dst, src in get_execution_mappings(varname, section):
                 if line_count > 0:
                     content += ',\n'
-                content += f"    Mapping{{u'{dst}', u\"{quote_cpp_string(src)}\"}}"
+                if len(dst) == 1:
+                    content += f"    Mapping{{u'{dst}', u\"{quote_cpp_string(src)}\"}}"
+                else:
+                    content += f"    Mapping{{u\"{dst}\", u\"{quote_cpp_string(src)}\"}}"
                 line_count += 1
         content += '\n>();\n'
 
@@ -212,8 +214,10 @@ def generate_div(config: dict[str, Any]):
 
     if config.get('rtl', False):
         rtl = ' dir="rtl"'
+        ltr = ' dir="ltr"'
     else:
         rtl = ''
+        ltr = ''
 
     language: str = config['language']
 
@@ -247,9 +251,9 @@ def generate_div(config: dict[str, Any]):
                     content += '\n'
                 
                 if isinstance(data, str):
-                    content += f'                    <td>{data}</td>'
+                    content += f'                    <td{ltr}>{data}</td>'
                 elif isinstance(data, list):
-                    content += '                    <td><table class="multi">'
+                    content += f'                    <td{ltr}><table class="multi">'
                     for srcitem in data:
                         content += f'<tr><td>{srcitem}</td></tr>'
                     content += '</table></td>'
@@ -296,8 +300,10 @@ def generate_markdown(config):
 
     if config.get('rtl', False):
         rtl = ' dir="rtl"'
+        ltr = ' dir="ltr"'
     else:
         rtl = ''
+        ltr = ''
 
     content = dedent(f'''\
         <!-- THIS FILE IS AUTO-GENERATED. DO NOT EDIT. -->
@@ -319,9 +325,9 @@ def generate_markdown(config):
             content += '\n</tr><tr>\n'
             for data in get_presentation_mappings(varname, section, overrides):
                 if isinstance(data, str):
-                    content += f'<td>{data}</td>'
+                    content += f'<td{ltr}>{data}</td>'
                 elif isinstance(data, list):
-                    content += '<td>' + '<br>'.join(data) + '</td>'
+                    content += f'<td{ltr}>' + '<br>'.join(data) + '</td>'
 
             content += '\n</tr></table></div>'
     
