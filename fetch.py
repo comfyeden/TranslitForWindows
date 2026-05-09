@@ -15,7 +15,7 @@ from urllib.error import HTTPError
 
 components = {
     'WebView2': {
-        'ver': '1.0.3296.44',
+        'ver': '1.0.3912.50',
         'nuget': 'Microsoft.Web.WebView2',
         'dir': 'WebView2',
         'verFile': 'fetch.version.txt',
@@ -44,7 +44,7 @@ components = {
         'generateVerFile': True
     },
     'muuid': {
-        'ver': '1.8',
+        'ver': '2.2',
         'url': 'https://github.com/gershnik/modern-uuid/archive/refs/tags/v{ver}/v{ver}.tar.gz',
         'unpacker': {
             'type': 'tar',
@@ -55,7 +55,7 @@ components = {
         'generateVerFile': True
     },
     'sys_string': {
-        'ver': '3.4',
+        'ver': '3.8',
         'url': 'https://github.com/gershnik/sys_string/archive/refs/tags/v{ver}/v{ver}.tar.gz',
         'unpacker': {
             'type': 'tar',
