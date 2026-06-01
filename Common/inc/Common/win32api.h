@@ -49,9 +49,9 @@ inline sys_string getModuleFileName(HMODULE hModule) {
 		if (err == NO_ERROR)
 			break;
 		if (err == ERROR_INSUFFICIENT_BUFFER) {
-			if (err < std::numeric_limits<DWORD>::max() / 2)
+			if (size < std::numeric_limits<DWORD>::max() / 2)
 				size *= 2;
-			else if (err < std::numeric_limits<DWORD>::max() - 32)
+			else if (size < std::numeric_limits<DWORD>::max() - 32)
 				size += 32;
 			else
 				throw std::bad_alloc();
