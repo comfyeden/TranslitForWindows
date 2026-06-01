@@ -154,8 +154,8 @@ private:
 	LangBarItemRegistration m_langBarItemRegistration;
 	CompartmentEventsRegistration m_globalCompartmentEventsRegistration;
 
-	const ProfileInfo * m_profile;
-	Transliterator::MappingFunc * m_mapper;
+	const ProfileInfo * m_profile = nullptr;
+	Transliterator::MappingFunc * m_mapper = nullptr;
 	std::unique_ptr<Transliterator> m_transliterator;
 	com_shared_ptr<ITfComposition> m_composition;
 };
