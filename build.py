@@ -57,8 +57,16 @@ def main():
         if studio['version'][0] == 18:
             print(f'Using {studio["name"]}', flush=True)
             studio_dir = studio['location']
+            break
     if studio_dir is None:
         raise RuntimeError('Cannot find Visual Studio 18 instance')
+
+    default_version_file = studio_dir / 'VC' / 'Auxiliary' / 'Build' / 'Microsoft.VCToolsVersion.default.txt'
+    if default_version_file.exists():
+        tools_version = default_version_file.read_text().strip()
+        print(f'Using MSVC toolchain {tools_version}', flush=True)
+    else:
+        print(f'Warning: MSVC toolchain file {default_version_file} not present', flush=True)
     
     msbuild = studio_dir / f'MSBuild\\Current\\Bin\\{arch}\\MSBuild.exe'
 
