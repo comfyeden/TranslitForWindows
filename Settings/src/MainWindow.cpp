@@ -193,13 +193,13 @@ void MainWindow::initWebView() {
 
 void MainWindow::handleWebEvent(ICoreWebView2WebMessageReceivedEventArgs * args) {
 
-    unqiue_co_membuf<wchar_t[]> uri;
+    unique_co_membuf<wchar_t[]> uri;
     comTest(args->get_Source(std::out_ptr(uri)));
 
     if (wcscmp(uri.get(), L"about:blank") != 0)
         return;
 
-    unqiue_co_membuf<wchar_t[]> message;
+    unique_co_membuf<wchar_t[]> message;
     comTest(args->get_WebMessageAsJson(std::out_ptr(message)));
 
     rapidjson::WDocument data;

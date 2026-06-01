@@ -166,7 +166,7 @@ void AboutWindow::initWebView() {
             comTest(args->get_IsUserInitiated(&userInitiated));
 
             if (userInitiated) {
-                unqiue_co_membuf<wchar_t[]> uri;
+                unique_co_membuf<wchar_t[]> uri;
                 comTest(args->get_Uri(std::out_ptr(uri)));
                 ShellExecute(me->handle(), L"open", uri.get(), nullptr, nullptr, SW_SHOWNORMAL);
                 comTest(args->put_Cancel(true));

@@ -92,4 +92,4 @@ requires(
 	(!std::is_array_v<T> && std::is_trivially_destructible_v<T>) ||
 	(std::is_array_v<T> && std::is_trivially_destructible_v<std::remove_all_extents_t<T>>)
 )
-using unqiue_local_membuf = std::unique_ptr<T, LocalAllocDeleter>;
+using unique_local_membuf = std::unique_ptr<T, LocalAllocDeleter>;

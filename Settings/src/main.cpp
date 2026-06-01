@@ -96,7 +96,7 @@ int APIENTRY wWinMain([[maybe_unused]] _In_ HINSTANCE hInstance,
     if (!InitCommonControlsEx(&icx))
         abort();
 
-    unqiue_co_membuf<wchar_t[]> pathBuf;
+    unique_co_membuf<wchar_t[]> pathBuf;
     comTest(SHGetKnownFolderPath(FOLDERID_LocalAppData, KF_FLAG_CREATE | KF_FLAG_INIT, nullptr, std::out_ptr(pathBuf)));
     path localAppdata(pathBuf.get());
     path dataFolder = localAppdata / L"Translit";
@@ -110,7 +110,7 @@ int APIENTRY wWinMain([[maybe_unused]] _In_ HINSTANCE hInstance,
     }
     g_dataFolder = std::move(dataFolder);
 
-    unqiue_co_membuf<wchar_t []> verInfo;
+    unique_co_membuf<wchar_t []> verInfo;
     auto hres = GetAvailableCoreWebView2BrowserVersionString(nullptr, std::out_ptr(verInfo));
     if (FAILED(hres) || !verInfo) {
         MessageBox(nullptr, 
