@@ -31,7 +31,9 @@ private:
 };
 
 void doEditSession(SmartOrDumb<ITfContext> auto && context, TfClientId clientId, DWORD flags, std::invocable<TfEditCookie> auto && func) {
-	auto session = com_attach(new EditSession(std::forward<decltype(func)>(func)));
+	//Dumb MSVC got broken in 2026 and stopped recognizing CTAD in the constructor below. Hence the explicit param. Sigh.
+	using FuncT = std::remove_cvref_t<decltype(func)>;
+	auto session = com_attach(new EditSession<FuncT>(std::forward<decltype(func)>(func)));
 	HRESULT hres;
 	comTest(std::forward<decltype(context)>(context)->RequestEditSession(clientId, session.get(), flags, &hres));
 	comTest(hres);
