@@ -159,8 +159,6 @@ inline HRESULT hresult_from(std::error_code err) {
 		return S_OK;
 	if (err.category() == std::system_category()) {
 		DWORD val = err.value();
-		if (val & 0x8000000)
-			return HRESULT(val);
 		return HRESULT_FROM_WIN32(val);
 	}
 	return E_FAIL;
