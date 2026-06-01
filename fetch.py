@@ -33,7 +33,7 @@ components = {
         'generateVerFile': True
     },
     'isptr': {
-        'ver': '1.9',
+        'ver': '1.11',
         'url': 'https://github.com/gershnik/intrusive_shared_ptr/archive/refs/tags/v{ver}/v{ver}.tar.gz',
         'unpacker': {
             'type': 'tar',
@@ -44,7 +44,7 @@ components = {
         'generateVerFile': True
     },
     'muuid': {
-        'ver': '2.2',
+        'ver': '2.3',
         'url': 'https://github.com/gershnik/modern-uuid/archive/refs/tags/v{ver}/v{ver}.tar.gz',
         'unpacker': {
             'type': 'tar',
@@ -55,7 +55,7 @@ components = {
         'generateVerFile': True
     },
     'sys_string': {
-        'ver': '3.8',
+        'ver': '3.9',
         'url': 'https://github.com/gershnik/sys_string/archive/refs/tags/v{ver}/v{ver}.tar.gz',
         'unpacker': {
             'type': 'tar',
