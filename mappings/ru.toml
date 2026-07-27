@@ -16,8 +16,8 @@ variants.'translit-ru'.display = 'translit.ru'
 'г' = "g"
 'Д' = "D"                                               #  5
 'д' = "d"
-'Е' = "E"                                               #  6
-'е' = "e"
+'Е' = [["Ye", "YE"]]                                    #  6
+'е' = "ye"
 'Ё' = [["Jo", "JO"], ["Yo", "YO"], "Ö", "Ë"]            #  7
 'ё' = ["jo", "yo", "ö", "ë"]
 'Ж' = [["Zh", "ZH"]]                                    #  8
@@ -29,8 +29,8 @@ variants.'translit-ru'.display = 'translit.ru'
 'з' = "z"
 'И' = "I"                                               # 10
 'и' = "i"
-'Й' = "J"                                               # 11
-'й' = "j"
+'Й' = "Y"                                               # 11
+'й' = "y"
 'К' = "K"                                               # 12
 'к' = "k"
 'Л' = "L"                                               # 13
@@ -56,10 +56,10 @@ variants.'translit-ru'.display = 'translit.ru'
 'у' = "u"
 'Ф' = "F"                                               # 22
 'ф' = "f"
-'Х' = ["H", "X"]                                        # 23
-'х' = ["h", "x"]
-'Ц' = "C"                                               # 24
-'ц' = "c"
+'Х' = ["H", "X", ["Kh", "KH"]]                          # 23
+'х' = ["h", "x", "kh"]
+'Ц' = ["Ts", "TS"]                                      # 24
+'ц' = "ts"
 
 [[mappings]]
 
@@ -75,16 +75,16 @@ variants.'translit-ru'.display = 'translit.ru'
 'ъ'.default = "qq"
 'ъ'.'translit-ru' = ["#", "tvz"]
 
-'Ы' = "Y"                                               # 29
-'ы' = "y"
+'Ы' = ["Yi", "YI"]                                      # 29
+'ы' = ["yi"]
 
 'Ь'.default = "Q"                                       # 30
 'Ь'.'translit-ru' = "''" 
 'ь'.default = "q"
 'ь'.'translit-ru' = ["'", "mjz"]
 
-'Э' = [["Je", "JE"], "Ä"]                               # 31
-'э' = ["je", "ä"]
+'Э' = "E"                                               # 31
+'э' = "e"
 'Ю' = [["Ju", "JU"], ["Yu", "YU"], "Ü"]                 # 32
 'ю' = ["ju", "yu", "ü"]
 
