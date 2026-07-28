@@ -73,7 +73,7 @@ variants.'translit-ru'.display = 'translit.ru'
 'Ъ'.default = [["Qq", "QQ"]]                            # 28
 'Ъ'.'translit-ru' = "##"
 'ъ'.default = "qq"
-'ъ'.'translit-ru' = ["#", "tvz"]
+'ъ'.'translit-ru' = ["#"]
 
 'Ы' = ["Yi", "YI"]                                      # 29
 'ы' = ["yi"]
@@ -81,17 +81,17 @@ variants.'translit-ru'.display = 'translit.ru'
 'Ь'.default = "Q"                                       # 30
 'Ь'.'translit-ru' = "''" 
 'ь'.default = "q"
-'ь'.'translit-ru' = ["'", "mjz"]
+'ь'.'translit-ru' = ["'"]
 
 'Э' = "E"                                               # 31
 'э' = "e"
 'Ю' = [["Yu", "YU"], "Ü"]                               # 32
 'ю' = ["yu"]
 
-'Я'.default = [["Ja", "JA"], ["Ya", "YA"]]              # 33
-'Я'.'translit-ru' = [["Ja", "JA"], ["Ya", "YA"], "Q"]
-'я'.default = ["ja", "ya"]
-'я'.'translit-ru' = ["ja", "ya", "q"]
+'Я'.default = [["Ya", "YA"]]                            # 33
+'Я'.'translit-ru' = [["Ya", "YA"]]
+'я'.default = ["ya"]
+'я'.'translit-ru' = ["ya"]
 
 [footer]
 
