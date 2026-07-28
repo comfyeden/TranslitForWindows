@@ -46,7 +46,11 @@ jobs:
     - name: Fetch dependencies
       shell: bash
       run: python fetch.py
-
+      
+    - name: Generate tables
+      shell: bash
+      run: python mappings/generate-tables.py
+      
     - name: Build
       shell: bash
       run: python build.py
